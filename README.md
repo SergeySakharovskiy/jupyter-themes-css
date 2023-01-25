@@ -1,13 +1,16 @@
 # jupyter-themes-css
 
 **Overview**
+
 This repository contains custom jupyter css themes forked from
 [arv-anshul repo.](https://github.com/arv-anshul/modified-jupyterthemes)
 
 **Prerequisites**
+
 jupyter notebook
 
 **Getting Started**
+
 ```from IPython.display import HTML
 with open('compiled/gruvboxll.css', 'r') as file:
     custom_css = file.read()
