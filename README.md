@@ -24,5 +24,5 @@ HTML(custom_css)
 ![image](https://user-images.githubusercontent.com/71666496/214673506-6c477476-d7d3-4044-82fa-ae2dae4f9e9c.png)
 
 
-[**darkula **]:
+**darkula**:
 ![image](https://user-images.githubusercontent.com/71666496/214675618-ee63e92d-cb13-4394-8c0e-0cd2916435fb.png)
