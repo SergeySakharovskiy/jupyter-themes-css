@@ -1,0 +1,602 @@
+/*
+  Jupyter Darkula Theme
+  Author: Aleksandr Zhuravlev
+  Inspired by IntelliJ Darcula theme.
+*/
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono);
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono);
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('DINPro.eot');
+    src: local('DIN Pro'), local('DINPro'),
+        url('DINPro.eot?#iefix') format('embedded-opentype'),
+        url('DINPro.woff2') format('woff2'),
+        url('DINPro.woff') format('woff'),
+        url('DINPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    /* Fonts */
+    --main-font-family: 'DIN Pro', 'IBM Plex Sans';
+    --code-font-family: 'JetBrains Mono';
+    --headings-font-family: 'DIN Pro', 'Alegreya Sans SC', 'IBM Plex Sans', 'sans-serif';
+    --markdown-body-font-family: 'DIN Pro', 'IBM Plex Mono';
+    --main-font-size: 11pt;
+    /* --headings-font-family: 'Alegreya Sans SC', 'serif'; */
+    /* --heading-code-font-family: 'Anonymous Pro'; */
+    --heading-code-font-family: var(--code-font-family);
+
+    /* Code Formatting Colors */
+    --keyword-color: #82cfff;
+    --def-color: #FFCA57;
+    --builtin-color: var(--def-color);
+    --property-color: #FF6774;
+    --number-color: #FF8663;
+    --operator-color: #6DDFFF;
+    --comment-color: #464b5d;
+    --string-color: #B8EB80;
+    --variable-color: #82A6E9;
+    --variable2-color: #a6accd;
+    --matching-bracket-color: #e3f0f4;
+    /* Background Colors */
+    --background-color-main: #0F111B;
+    --background-color-secondary: #464b5d;
+    --cell-background-color-main: var(--cell-background-color-secondary);
+    --cell-background-color-main: var(--background-color-main);
+    --cell-background-color-secondary: #1a1d30;
+    --markdown-cell-background-color: #1a1d30;
+    --markdown-cell-code-font-color: var(--text-cell-passive-color);
+    /* --cell-border: medium solid #04313c; */
+
+    /* Border Colors */
+    --cell-border: transparent;
+    --text-cell-active-color: var(--markdown-headings-color);
+    --code-cell-active-color: #4CADCC;
+    --text-cell-passive-color: #C2627D;
+    --code-cell-passive-color: #303354;
+
+    /* Scrollbars */
+    --scrollbar-main-background-color: var(--background-color-main);
+    --scrollbar-scroller-color: var(--markdown-cell-background-color);
+    --scrollbar-width: 8px;
+    --scrollbar-height: 3.5px;
+
+    /* Hover Colors */
+    --primary-hover-color: var(--markdown-cell-background-color);
+    --table-odd-hover-color: #22273f;
+    --table-even-hover-color: #22263f;
+    --table-font-color: #93a1a1;
+    --table-border-color: #ddd;
+    --table-head-border-thickness: 1px;
+    --table-cell-border: transparent;
+
+    /* ?? Colors */
+    /* Works for Pandas table hovering */
+    --ancilliary-color-1: var(--markdown-cell-background-color);
+    --ancilliary-color-2: var(--markdown-cell-background-color);
+    /* Default font color everywhere - code commas, top navbar
+    /* Output cell nos */
+    --ancilliary-color-3: #8d9ca0;
+
+    --ancilliary-color-4: #083e4b;
+    --ancilliary-color-5: #657b83;
+    --ancilliary-color-6: var(--background-color-main);
+    --ancilliary-color-7: var(--markdown-cell-background-color);
+
+    /* Font Sizes */
+    --output-font-size: 13px;
+
+    /* Headings */
+    --markdown-headings-color: #f791ac;
+    --h1-font-size: 215%;
+    --h2-font-size: 180%;
+    --h3-font-size: 150%;
+    --h4-font-size: 120%;
+    --h5-font-size: 100%;
+    --h6-font-size: 95%;
+    --headings-code-font-size: 80%;
+
+    --h1-align: center;
+    --h2-align: left;
+    --h3-align: left;
+    --h4-align: left;
+    --h5-align: left;
+    --h6-align: left;
+
+    /* Other */
+    --horizontal-rule-color: #d78585;
+    --code-cursor-color: var(--code-cell-active-color);
+    --code-cursor-thickness: 0.65em;
+    --cursor-opacity: 35%;
+    --collapsible-icon-margin-top: 8%;
+
+    /* Jupyter Widgets */
+    --jp-widgets-margin: 0px !important;
+
+    /* Custom Jupyter Widgets */
+    --img-box-selected-color: #3CDCFF;
+}
+
+body, body.notebook_app.command_mode {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 
+  SET THE CODE/MONOSPACE FONT 
+  I prefer Bitsream Vera Sans Mono, which is freely downloadable here:
+  http://www.dafont.com/bitstream-vera-mono.font
+  However, there are plenty of alternatives at http://programmingfonts.org/
+  in which case, add your preferred font to the stack below.
+*/
+
+.CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
+    font-family: "Bitstream Vera Sans Mono", Monaco, monospace;
+    font-size: 9pt;
+}
+.terminal-app .terminal { line-height: 1.3em; }
+div.output pre, div.output code, .rendered_html pre, .rendered_html code, div.completions select, div.container pre, table.dataframe {
+  font-family: "Bitstream Vera Sans Mono", Monaco, monospace;
+}
+div.output pre, div.output code, .rendered_html pre, .rendered_html p code, div.completions select, div.container pre, table.dataframe {
+    font-size: 9pt;
+}
+
+div.prompt, div.tooltiptext pre {
+    font-family: "Bitstream Vera Sans Mono", Monaco, monospace;
+    font-size: 8pt;
+}
+
+div.input_area {
+    border-color: rgba(0, 0, 0, 0.10);
+    background: rbga(0, 0, 0, 0.5);
+}
+
+/* GLOBALS */
+
+@media not print { body { background-color: #eee; } }
+a { color: #7d888f; }
+a:hover, a:focus { color: #adadad; }
+
+/* DASHBOARD */
+
+body[data-notebook-path] { background-color: #222; }
+body[data-notebook-path] #header, .terminal-app #header { display: none !important; } 
+
+.tabbable { color: #979797; }
+.nav-tabs { border-bottom-color: #444; }
+.nav-tabs > li > a:hover, .nav > li > a:focus {
+  background-color: #333;
+  border-color: #222 #222 #555 #222;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { 
+  color: #979797;
+  background-color: #444;
+  border-top-color: #444;
+  border-right-color: #444;
+  border-left-color: #444;
+}
+.list_container { border-color: #444; }
+.list_container > div { border-bottom-color: #444; }
+.list_item:hover { background-color: #333; }
+.list_header { background-color: #444; }
+#notebook_list input[type="checkbox"] { opacity: 0.3; }
+#notebook_list input[type="checkbox"]:checked { opacity: 1; }
+.item_icon { color: #777; }
+.running_notebook_icon:before { color: #337ab7; }
+.item_buttons .running-indicator { color: #337ab7; }
+.panel { border-color: #444; background-color: #222; }
+.panel-default > .panel-heading { border-color: #444; }
+#site .panel-group .panel .panel-heading { background-color: #444; }
+#running .panel-group .panel .panel-body .list_container .list_item { border-bottom-color: #444; }
+
+/* Dropdown menus */
+
+.dropdown-menu {
+  background: rgba(50, 50, 50, 0.95);
+  color: #b7b7b7;
+}
+.dropdown-menu > li > a, .dropdown-submenu > a:after, .dropdown-menu > li > a:visited:after {
+  color: #b7b7b7;
+}
+.dropdown-menu .divider {
+  background-color: #444;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #444;
+}
+.dropdown-menu > li > a:hover:after, .dropdown-menu > li > a:focus:after, 
+.dropdown-menu > li > a:active:after {
+  color: #fff;
+}
+
+/* TERMINAL INTERFACE */
+.terminal-app #site { background: #272727; }
+.terminal-app .terminal { background: #141414 !important; }
+
+/* NOTEBOOK AND EDITOR INTERFACE */
+
+/* comment out the following line to unhide the toolbar */
+/* div#maintoolbar { display: none !important; } */
+
+/*
+  Header UI styles
+*/
+
+body.notebook_app > #header { display: block !important; }
+.notebook_app > #header, .edit_app > #header { 
+  background-color: #333;
+  color: #b7b7b7;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.edit_app #menubar .navbar { margin-bottom: 0; }
+body > #header .header-bar { background: #444; }
+#header .navbar-brand { display: none; }
+#header .filename { margin-left: 0; margin-right: 2em; }
+#header .current_kernel_logo { width: 24px; height: 24px; }
+span.save_widget span.filename:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.navbar-default {
+  background: transparent;
+  color: #b7b7b7;
+  border-color: #444;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #444;
+}
+
+@media not print {
+  .notebook_app #notebook {
+    background: #111;
+  }
+
+  .notebook_app #notebook-container, .edit_app #texteditor-backdrop {
+    background: #272727;
+  }
+}
+
+/*
+  Inverting the notebook editor UI
+*/
+
+.celltoolbar {
+  border-color: #444;
+  background: #444;
+  color: #b7b7b7;
+}
+.rendered_html tr,
+.rendered_html th,
+.rendered_html td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0.42em 0.47em;
+    line-height: normal;
+    white-space: normal;
+    max-width: none;
+    border: none;
+}
+
+.rendered_html td {
+    font-family: var(--main-font-family) !important;
+    color: var(--table-font-color);
+    font-size: 9.3pt;
+}
+
+.rendered_html table {
+    font-family: var(--main-font-family) !important;
+    margin-left: 8px;
+    margin-right: auto;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: var(--ancilliary-color-3);
+    table-layout: fixed;
+}
+
+.rendered_html thead {
+    font-family: var(--main-font-family) !important;
+    font-size: 10.3pt !important;
+    background: var(--primary-hover-color);
+    color: var(--table-font-color);
+    border-bottom: 1px solid var(--primary-hover-color);
+    vertical-align: bottom;
+}
+
+.rendered_html tbody tr:nth-child(odd) {
+    background: var(--background-color-main);
+}
+
+.rendered_html tbody tr {
+    background: var(--primary-hover-color);
+}
+
+.rendered_html tbody tr:hover:nth-child(odd) {
+    background: var(--table-odd-hover-color);
+}
+
+.rendered_html tbody tr:hover {
+    background: var(--table-even-hover-color);
+}
+
+.table>thead>tr>th {
+    border-bottom: var(--table-head-border-thickness) solid var(--table-border-color) !important;
+    font-style: bold;
+    text-align: center;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    border-top: var(--table-cell-border) !important;
+}
+
+.rendered_html *+table {
+    margin-top: .05em;
+}
+}
+.celltoolbar select {
+  opacity: 0.5;
+}
+
+.modal-dialog .modal-content, .popover, .popover .popover-title {
+  background: rgba(50, 50, 50, 0.95);
+  color: #b7b7b7;
+}
+.modal-header, .popover-title {
+  border-bottom-color: #444;
+}
+.modal-footer {
+  border-top-color: #444;
+}
+.modal-dialog .close {
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+}
+.modal-dialog .alert-info {
+  background-color: #373E42;
+  color: #d9edf7;
+}
+.popover.bottom > .arrow:after {
+  border-bottom-color: #444;
+}
+
+.btn:focus, .btn:active:focus {
+  outline: 5px auto rgba(102, 175, 233, 0.3);
+  outline-offset: -1px;
+}
+.btn-default {
+  background-color: #555;
+  border-color: #222;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  color: #aaa;
+}
+.btn-default:focus, .btn-default:hover {
+  background-color: #555;
+  border-color: #222;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  color: #bbb;
+}
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  background-color: #474747;
+  color: #999;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.btn-default.disabled:focus, .btn-default.disabled:hover, 
+.btn-default[disabled]:focus, .btn-default[disabled]:hover {
+  background-color: #555;
+  border-color: #222;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  color: #aaa;
+}
+.btn-default:active:hover, .btn-default:active:focus, 
+.open > .dropdown-toggle.btn-default:hover, .open > .dropdown-toggle.btn-default:focus {
+  background-color: #474747;
+  color: #999;
+  border-color: #222;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  color: #eee;
+  background-color: #4481b7;
+  border-color: #222;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.btn-primary:focus, .btn-primary:hover {
+  background-color: #4481b7;
+  color: #fff;
+}
+.btn-primary:active {
+  background-color: #306ea6;
+  color: #ccc;
+}
+.btn-primary:active:hover, .btn-primary:active:focus {
+  background-color: #306ea6;
+  color: #ccc;
+}
+
+.form-control {
+  background: #222;
+  color: #eee;
+  border-color: #777;
+}
+.form-control:focus {
+  border-color: #458ac1;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.3);
+}
+.form-control::selection {
+  background: rgba(221, 240, 255, 0.19);
+}
+
+#complete {
+  border-color: #444;
+  background: rgba(50, 50, 50, 0.95);
+  color: #b7b7b7;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.completions select {
+  background: rgba(50, 50, 50, 0.95);
+  color: #b7b7b7;
+}
+
+/*
+  Set fonts and styles for outputted content
+*/
+
+div#notebook .text_cell_render {
+  color: #bbbbbb;
+}
+
+.rendered_html li p {
+  margin-top: 1em;
+}
+
+div.output_html { font-family: sans-serif; }
+
+/*
+  Set colors and styles that we only want on the screen, not for print
+*/
+
+@media not print {
+  .notebook_app div.cell.running .input .input_area { 
+    border-left-color: #82591E;
+    -webkit-animation-name: pulseBorder;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+  @-webkit-keyframes pulseBorder {
+    from { border-left-color: #82591E; }
+    to { border-left-color: #eea236; }
+  }
+  
+  .notebook_app div.input_prompt {color: #9b703f;}
+  .notebook_app div.output_prompt {color: #9b859d;}
+  .notebook_app div.input_area {
+    border-radius: 0px;
+    border: 1px solid #464b50;
+  }
+  .notebook_app div.output_subarea { max-width: 100%; }
+  .notebook_app div.output_area pre { font-weight: normal; color: #979797; }
+  .notebook_app div.output_subarea { font-weight: normal; color: #979797; }
+  .notebook_app div.output_stderr {background-color: #A0783C;}
+  .notebook_app div.output_stderr pre {color: #eee;}
+
+  .notebook_app .rendered_html table, .notebook_app .rendered_html th, .notebook_app .rendered_html tr, .notebook_app .rendered_html td {
+    border: 1px  #979797 solid;
+    color: #979797;
+  }
+  .notebook_app div.text_cell_render, .notebook_app div.output_html { color: #979797; }
+  
+  /*
+    Pandas DataFrame
+  */
+
+  .notebook_app table.dataframe tr { border: 1px #979797; }
+  .notebook_app table.dataframe th{ background: #141414; }
+
+  .notebook_app .rendered_html pre, .notebook_app .rendered_html code {
+    border: 0;
+    background-color: #444;
+    color: #b0b0b0;
+    padding: 0;
+  }
+}
+
+/*
+  Terminal text coloring
+*/
+
+span.ansiblack {color: #323537;}
+span.ansiblue {color: #afc4db;}
+span.ansigray {color: #838184;}
+span.ansigreen {color: #8f9d6a;}
+span.ansipurple {color: #9b859d;}
+span.ansired {color: #cf6a4c;}
+span.ansiyellow {color: #f9ee98;}
+
+/*
+  Code editing
+*/
+
+.CodeMirror {background: #141414; color: #a9b7c6;}
+div.CodeMirror-selected {background: rgba(221, 240, 255, 0.19) !important;}
+#texteditor-backdrop #texteditor-container .CodeMirror-gutter, .CodeMirror-gutters {background: #444; border-right: 0px; color: #777;}
+.CodeMirror-linenumber {color: #b4b7b4;}
+.CodeMirror-cursor {border-left: 1px solid #A7A7A7 !important; margin-top: -2px; min-height: 18px;} 
+
+.CodeMirror span.cm-comment {color: #808080; font-style: italic;}
+.CodeMirror span.cm-atom {color: #CF6A4C;}
+.CodeMirror span.cm-number {color: #6897bb;}
+
+.CodeMirror span.cm-property {color: #a9b7c6;}
+.CodeMirror span.cm-attribute {color: #198844;}
+.CodeMirror span.cm-keyword {color: #cc7832; font-weight: normal;}
+.CodeMirror span.cm-string {color: #a5c261;}
+.CodeMirror span.cm-string-2 {color: #008080;} /* regexp */
+.CodeMirror span.cm-operator {color: #CDA869;}
+.CodeMirror span.cm-builtin {color: #8888c6;}
+.CodeMirror span.cm-meta {color: #bbb529;}
+
+.CodeMirror span.cm-variable {color: #a9b7c6;}
+.CodeMirror span.cm-variable-2 {color: #7587A6;}
+.CodeMirror span.cm-variable-3 {color: #7587A6;}
+.CodeMirror span.cm-def {color: #a9b7c6;}
+.CodeMirror span.cm-error {color: #F8F8F8; background-color: rgba(86, 45, 86, 0.2);}
+.CodeMirror span.cm-bracket {color: #373b41;}
+.CodeMirror span.cm-tag {color: #7587A6;}
+.CodeMirror span.cm-link {color: #A36AC7;}
+
+.CodeMirror .CodeMirror-matchingbracket { background-color: #dd3; color: #303030 !important;}
+
+/*
+  Markdown editing
+*/
+
+.cm-s-default span.cm-header {color: #CF4A4C;}
+.cm-s-default span.cm-variable-2 {color: #7587A6;}
+.cm-s-default span.cm-comment {color: #7F7A80;}
+
+
+div.output.output_scroll {
+ box-shadow: none;
+}
+::-webkit-scrollbar-track {
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.11);
+ background-color: #49483e;
+ border-radius: 6px;
+}
+::-webkit-scrollbar {
+ width: 14px;
+ height: 20px;
+ background-color: #49483e;
+ border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+ background-color: #ffffff;
+ background-image: -webkit-gradient(linear,40% 0%,75% 86%,from(#3e3d35 ),color-stop(0.5,#5a584c ),to(#3e3d35 ));
+ min-height: 100px;
+ border-radius: 2px;
+}
+
