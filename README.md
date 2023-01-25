@@ -11,6 +11,7 @@ jupyter notebook
 
 **Getting Started**
 
+Download the compiled folder and run the following code:
 ```python from IPython.display import HTML
 with open('compiled/gruvboxll.css', 'r') as file:
     custom_css = file.read()
