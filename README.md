@@ -8,9 +8,9 @@ This repository contains custom jupyter css themes forked from
 jupyter notebook
 
 **Getting Started**
-from IPython.display import HTML
+```from IPython.display import HTML
 with open('compiled/gruvboxll.css', 'r') as file:
-    custom_css = file.read()
+    custom_css = file.read()```
 
 custom_css = f'<style>{custom_css}</style>'
 HTML(custom_css)
