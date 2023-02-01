@@ -24,7 +24,7 @@ Or save config at:
 
 linux: ~/.jupyter/custom/custom.css
 
-windows: C:\Users\user.name\.jupyter\custom\custom.css
+windows: C:\Users\user.name\\.jupyter\custom\custom.css
 
 
 **gruvboxll**
