@@ -16,6 +16,10 @@ Download the compiled folder and run the following code:
 with open('compiled/gruvboxll.css', 'r') as file:
     custom_css = file.read()
 
+Or save config at:
+linux: ~/.jupyter/custom/custom.css
+windows: C:\Users\user.name\.jupyter\custom\custom.css
+
 custom_css = f'<style>{custom_css}</style>'
 HTML(custom_css)
 ```
