@@ -1,6 +1,6 @@
 /* https://github.com/arv-anshul original author*/
 
-body[data-jp-theme-light="false"] .jp-Notebook .CodeMirror.cm-s-jupyter{
+body[data-jp-theme-light="true"] .jp-Notebook .CodeMirror.cm-s-jupyter{
 background-color: #FDFBEE !important;}
 
 div#notebook {
