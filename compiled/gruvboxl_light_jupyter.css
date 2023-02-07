@@ -1,5 +1,7 @@
 /* https://github.com/arv-anshul original author*/
 
+body[data-jp-theme-light="true"] .jp-Notebook .CodeMirror.cm-s-jupyter{
+background-color: #fffdee66!important;}
 
 div#notebook {
  font-family: sans-serif;
@@ -464,7 +466,7 @@ div#notebook {
  margin-right: auto;
  margin-left: auto;
 }
-div#ipython-main-app.container {
+div#jupyter-main-app.container {
  width: 980px;
  margin-right: auto;
  margin-left: auto;
@@ -799,7 +801,7 @@ div.notification_widget {
 #kernel_logo_widget .current_kernel_logo {
  display: none;
 }
-div#ipython_notebook {
+div#jupyter_notebook {
  display: none;
 }
 i.fa.fa-icon {
