@@ -1,7 +1,7 @@
 /* https://github.com/arv-anshul original author*/
 
-body[data-jp-theme-light="true"] .jp-Notebook .CodeMirror.cm-s-jupyter{
-background-color: #fffdee66!important;}
+body[data-jp-theme-light="false"] .jp-Notebook .CodeMirror.cm-s-jupyter{
+background-color: #F4F6EB!important;}
 
 div#notebook {
  font-family: sans-serif;
